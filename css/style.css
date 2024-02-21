@@ -30,6 +30,7 @@ body {
   color: #191919;
   word-break: keep-all;
   background-color: rgb(198, 245, 245);
+  height: 2000px;
 }
 /* 안내창 */
 /* 공통요소 */
@@ -53,18 +54,23 @@ body {
   background-color: rgba(0, 0, 0, 0.84);
   z-index: 999999;
   padding: 50px;
+  transition: all 0.3s;
 }
-.nav-close{
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    display: block;
-    width: 23px;
-    height: 23px;
-    font-size: 0;
-    background: url("../images/close2.png") no-repeat center;
-    border: 0;
-    cursor: pointer;
+/* 메뉴 자바스크립트 기능 */
+.nav-active{
+  left: calc(100% - 450px);
+}
+.nav-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  display: block;
+  width: 23px;
+  height: 23px;
+  font-size: 0;
+  background: url("../images/close2.png") no-repeat center;
+  border: 0;
+  cursor: pointer;
 }
 .gnb {
   position: relative;
@@ -103,76 +109,91 @@ body {
   color: #fff;
 }
 /* 상단 */
-.header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80px;
-    z-index: 9999;
-    background-color: rgba(255, 255, 255, 0);
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 9999;
+  background-color: rgba(255, 255, 255, 0);
 }
-.logo-w{
-    display: block;
+/* 헤더에 기능추가 */
+.header-active{
+  background-color: #fff;
 }
-.logo-g{
-    display: none;
+.logo-w {
+  display: block;
 }
-.header .inner{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
+.logo-g {
+  display: none;
 }
-.header-right{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0 50px;
+.header .inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
 }
-.language-box{
-    padding-top: 25px;
+.header-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0 50px;
 }
-.language-world{
-    position: relative;
-    display: block;
-    font-size: 16px;
-    letter-spacing: -0.83px;
-    color: #000;
-    cursor: pointer;
-    font-weight: 500;
-    padding-right: 22px;
+.language-box {
+  padding-top: 25px;
 }
-.language-world::after{
-    content: "";
-    display: inline-block;
-    background: url("../images/select_icon2.png") no-repeat;
-    background-size: cover;
-    width: 8px;
-    height: 7px;
-    position: absolute;
-    right: 0;
-    top: 5px;
+.language-word {
+  position: relative;
+  display: block;
+  font-size: 16px;
+  letter-spacing: -0.83px;
+  color: #000;
+  cursor: pointer;
+  font-weight: 500;
+  padding-right: 22px;
 }
-.language{
-    visibility: hidden;
+.language-word::after {
+  content: "";
+  display: inline-block;
+  background: url("../images/select_icon2.png") no-repeat;
+  background-size: cover;
+  width: 8px;
+  height: 7px;
+  position: absolute;
+  right: 0;
+  top: 5px;
 }
-.language li{
-    transform: translateY(-10px);
-    opacity: 0;
-    visibility: hidden;
+.language {
+  visibility: hidden;
 }
-.language-box-active li{
-    transform: translateY(0px);
-    opacity: 1;
-    visibility: visible;
+.language li {
+  transform: translateY(-10px);
+  opacity: 0;
+  visibility: hidden;
+  /* transition: all 0.5s; */
 }
-.language li a{
-    display: block;
-    font-size: 16px;
-    letter-spacing: -0.83px;
-    color: #000;
-    cursor: pointer;
-    font-weight: 500;
-    padding: 5px 0;
+.language-box-active li {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+.language li a {
+  display: block;
+  font-size: 16px;
+  letter-spacing: -0.83px;
+  color: #000;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 5px 0;
+}
+.bt-menu {
+  display: inline-block;
+  width: 37px;
+  height: 12px;
+  background: url("../images/toggle_navi.png") no-repeat;
+  background-size: cover;
+  font-size: 0;
+  border: none;
+  cursor: pointer;
 }
