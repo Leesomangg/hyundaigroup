@@ -1,4 +1,6 @@
 window.addEventListener("load", function () {
+  // AOS적용
+  AOS.init();
   // 언어 펼침 기능
   const langWord = document.querySelector(".language-word");
   const language = document.querySelector(".language");
@@ -100,7 +102,7 @@ window.addEventListener("load", function () {
       playPromise.then((_) => {}).catch((error) => {});
     }
     clearInterval(videoTimer);
-    videoReset()
+    videoReset();
   });
   // 비디오 영상 플레이가 끝나면 다음 슬라이드로 이동
   // 늘어나는 흰색 bar 기능 추가
@@ -147,5 +149,14 @@ window.addEventListener("load", function () {
       videoIndex = index;
       swVisual.slideTo(videoIndex);
     });
+  });
+  // 비즈니스 swiper
+  const swBusiness = new Swiper(".swBusiness", {
+    loop: true,
+    speed: 500,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
   });
 });
